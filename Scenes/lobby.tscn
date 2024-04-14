@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://3eui0nbefaf6"]
+
+[ext_resource type="Script" path="res://Scenes/WebSocketClient.gd" id="1_fen48"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1156.0
+offset_bottom = 648.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(430, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 56
+text = "Finding Match..."
+fit_content = true
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_fen48")

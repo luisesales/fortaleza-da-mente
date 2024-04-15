@@ -56,17 +56,23 @@ func send(message) -> int:
 	
 ## Function that connects to another connection	
 func connect_to_url(url) -> int:
-	pass
-
+	var error  = socket.connect_to_url(url)
+	if error == OK:
+		last_state = socket.get_ready_state()
+	return error
+	
 ## Function that closes connection with another url
 func close(code := 1000, reason := "") :
-	pass
+	if last_state != WebSocketPeer.STATE_CLOSED: 
+		poll()
+	socket.close(code, reason)
+	last_state = socket.get_ready_state()
 	
 func clear():
 	print("cleared")
 
 func get_socket() -> WebSocketPeer:
-	pass  
+	return socket
 
 
 
